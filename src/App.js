@@ -1,6 +1,7 @@
 import React from "react";
-import logo from "./logo.svg";
 import "./App.scss";
+import ColorBox from "./components/ColorBox";
+import TodoList from "./components/TodoList";
 
 function App() {
   return (
@@ -9,6 +10,8 @@ function App() {
       <div className="app-sub">
         <h2>Sub</h2>
       </div>
+      <ColorBox></ColorBox>
+      <TodoList></TodoList>
     </div>
   );
 }
