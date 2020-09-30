@@ -1,0 +1,16 @@
+.ColorBox {
+    $box-size: 200px;
+
+    width: $box-size;
+    height: $box-size;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-radius: 5%;
+    user-select: none;
+    color: white;
+    cursor: pointer;
+
+    transition: all 0.3s ease-in-out 0s;
+}

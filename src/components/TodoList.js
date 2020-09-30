@@ -1,24 +1,29 @@
-import React, { useState } from "react";
+import React from "react";
+import PropTypes from "prop-types";
 
-function TodoList() {
-  const [todoList, setTodoList] = useState(["eat", "learn", "sleep"]);
+TodoList.propTypes = {};
 
-  function removeTodo(index) {
-    console.log(index);
-    let newTodoList = [...todoList];
+function TodoList(props) {
+  const { todos, onTodoClick } = props;
 
-    newTodoList.splice(index, 1);
-    setTodoList(newTodoList);
+  function handleClick(item) {
+    if (onTodoClick) {
+      onTodoClick(item);
+    }
   }
-
   return (
     <div className="TodoList">
-      <ul>
-        {todoList.map((todo, index) => (
-          <li key={index} onClick={() => removeTodo(index)}>
-            {todo}
-          </li>
-        ))}
+      <ul className="todo-list">
+        {todos &&
+          todos.map((item, index) => (
+            <li
+              key={index}
+              className="todo-list-item"
+              onClick={() => handleClick(item)}
+            >
+              {item.title}
+            </li>
+          ))}
       </ul>
     </div>
   );
