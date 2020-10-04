@@ -1,19 +1,28 @@
 import React from "react";
 import PropTypes from "prop-types";
+import "./TodoList.scss";
 
-TodoList.propTypes = {};
+TodoList.propTypes = {
+  onTodoClick: PropTypes.func,
+  todo: PropTypes.array,
+};
+
+TodoList.defautProps = {
+  onTodoClick: null,
+};
 
 function TodoList(props) {
   const { todos, onTodoClick } = props;
 
   function handleClick(item) {
     if (onTodoClick) {
-      onTodoClick(item);
+      onTodoClick(item); // send event with item to app.js
     }
   }
+
   return (
     <div className="TodoList">
-      <ul className="todo-list">
+      <ol className="todo-list">
         {todos &&
           todos.map((item, index) => (
             <li
@@ -24,7 +33,8 @@ function TodoList(props) {
               {item.title}
             </li>
           ))}
-      </ul>
+      </ol>
+      {!todos.length && <h2>Empty</h2>}
     </div>
   );
 }

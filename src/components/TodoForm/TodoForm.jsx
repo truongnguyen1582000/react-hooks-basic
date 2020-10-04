@@ -1,6 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
-import { useState } from "react";
 
 TodoForm.propTypes = {
   onSubmit: PropTypes.func,
@@ -15,26 +14,26 @@ function TodoForm(props) {
   const [value, setValue] = useState("");
 
   function handleValueChange(e) {
-    setValue(e.target.value);
+    setValue(e.target.value); // take value from input box
   }
 
   function handleSubmit(e) {
-    e.preventDefault();
+    e.preventDefault(); // prevent event reload
 
     if (!value.trim()) {
-      setValue("");
+      // verify
+      setValue(""); // clear input box
       return;
     }
 
-    if (!onSubmit) return;
+    if (!onSubmit) return; //
 
     const formValues = {
       title: value,
     };
 
-    onSubmit(formValues);
-
-    setValue("");
+    onSubmit(formValues); // send form value to app.js
+    setValue(""); // clear input box after sending
   }
 
   return (

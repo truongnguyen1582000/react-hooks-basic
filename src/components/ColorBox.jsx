@@ -6,7 +6,7 @@ ColorBox.propTypes = {};
 
 function getRandomColor() {
   const COLOR_LIST = ["pink", "green", "red", "black", "blue"];
-  const randomIndex = Math.trunc(Math.random() * 5);
+  const randomIndex = Math.trunc(Math.random() * 5); // Math.trunc() get integer part, Math.random() get random double number 0 - 1
   return COLOR_LIST[randomIndex];
 }
 
